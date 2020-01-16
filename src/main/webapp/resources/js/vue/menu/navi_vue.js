@@ -2,9 +2,9 @@
 var navi_vue = navi_vue || {}
 navi_vue = {
 	toolbar: () => {
-		return `<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+		return `<nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-shrink" id="mainNav">
 				<div class="container">
-				<a class="navbar-brand js-scroll-trigger" href="#wrapper"><strong>Hell Chang</strong></a>
+				<a id="home" class="navbar-brand js-scroll-trigger" href="#"><strong>Hell Chang</strong></a>
 				<button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 				<i class="fas fa-bars"></i>
 				</button>
@@ -14,7 +14,10 @@ navi_vue = {
 				</div>
 				</div>
 				</nav>
-				<header class="masthead">
+				`
+	},
+	toolbar_sub : ()=>{
+		return `<header class="masthead">
     			<div id="getStart" class="container d-flex h-100 align-items-center">
       			<div class="mx-auto text-center">
         		<h1 class="mx-auto my-0 text-uppercase">HELL Chang Gram</h1>
