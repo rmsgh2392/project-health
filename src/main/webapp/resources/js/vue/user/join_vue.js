@@ -24,7 +24,7 @@ join_vue = {
                             <input type="text" class="form-input" name="uname" id="uname" placeholder="이름을 입력칸"/>
                             <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
                         </div>
-                         <div class="form-group">
+                        <div class="form-group">
                             <input type="text" class="form-input" name="age" id="age" placeholder="나이를 입력하세요"/>
                         </div>
                         <fieldset class="form-group">
@@ -32,16 +32,28 @@ join_vue = {
                             <legend class="col-form-label col-sm-2 pt-0">성별</legend>
                             <div class="col-sm-10">
                                 <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gender" value="option1" checked>
                                 <label class="form-check-label" for="gridRadios1">남성</label>
                                 </div>
                                 <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gender" value="option2">
                                 <label class="form-check-label" for="gridRadios2">여성</label>
                                 </div>
                         </div>
                         </div>
                         </fieldset>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="height" id="height" placeholder="키를 입력하세여(cm 빼고)"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="weight" id="weight" placeholder="몸무게 입력하세요(kg 빼고)"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="fat" id="fat" placeholder="체지방량 입력하세요"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="muscle" id="muscle" placeholder="근육량 입력하세요"/>
+                        </div>
                         <div class="form-group">
                             <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                             <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
