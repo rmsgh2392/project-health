@@ -1,10 +1,10 @@
 var auth = auth || {}
 auth = (()=>{
-	let ctx, img ,css, js ,login_vue_js, cookie_js, main_js
+	let context, img ,css, js ,login_vue_js, cookie_js, main_js
 	let main_home_js
 
 	let init =()=>{
-		ctx = $.ctx()
+		context = $.ctx()
 		img = $.img()
 		css = $.css()
 		js = $.js()
@@ -24,6 +24,7 @@ auth = (()=>{
 		.done(()=>{
 			setContentView()
 			gomain()
+			signIn()
 		})
 		.fail(()=>{})
 	}	
@@ -41,5 +42,29 @@ auth = (()=>{
 			main_home.onCreate()
 		})
 	}
-	return {onCreate}
+	let signIn =()=>{
+		$('#login_btn')
+		.click(e=>{
+			alert(`로그인 해볼까`)
+			e.preventDefault()
+			alert(context)
+			$.ajax({
+				url : context + '/users/login',
+				type : 'POST',
+				data : JSON.stringify({
+					userid : $('input[placeholder="userid"]').val(),
+					passwd : $('input[placeholder="password"]').val()}),
+				dataType : 'json',
+				contentType : 'application/json',
+				success : d=>{
+					alert(d.user.uname)
+					if(d.msg ==='success'){
+						alert(`로그인 성공 `)
+					}else {$('span[class="duple_userid"]').text('아이디를 다시 확인해주세요').css('color','red')}
+				},
+				error : e=>{alert(`ajax실패`)}
+			})
+		}
+	)}
+	return {onCreate, gomain, setContentView }
 })()

@@ -4,6 +4,7 @@ main_home = (() => {
 	let navi_vue_js //네비 
 	let main_js, footer_js //메인화면,footer
 	let join_js //회원가입 페이지 이동
+	let routine_js //루틴 페이지이동
 
 	let init = () => {
 		context = $.ctx()
@@ -14,6 +15,7 @@ main_home = (() => {
 		footer_js = js + '/vue/menu/footer.js'
 		app_js = js + '/app.js'
 		join_js = js + '/user/join.js'
+		routine_js = js + '/user/routine.js'
 	}
 	let onCreate = () => {
 		init()
@@ -22,7 +24,8 @@ main_home = (() => {
 			$.getScript(main_js),
 			$.getScript(footer_js),
 			$.getScript(app_js),
-			$.getScript(join_js)
+			$.getScript(join_js),
+			$.getScript(routine_js)
 		)
 		.done(() => {
 			setContentView()
@@ -66,8 +69,10 @@ main_home = (() => {
 			e.preventDefault()
 			auth.onCreate()
 		})
-		$('#mypage').click(() => { alert('마이페이지') })
-		$('#routine').click(() => { alert('루틴') })
+		$('#mypage').click(() =>{ alert('마이페이지') })
+		$('#routine').click(function(){ 
+			routine.onCreate()
+		 })
 		$('#article').click(() => { alert('게시판') })
 		$('#center').click(() => { alert('센터') })
 	}

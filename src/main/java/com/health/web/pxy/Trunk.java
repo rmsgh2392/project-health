@@ -3,7 +3,6 @@ package com.health.web.pxy;
 import java.util.HashMap;
 import java.util.List;
 import java.util.function.Function;
-
 import org.springframework.stereotype.Component;
 
 @Component
@@ -23,7 +22,6 @@ public class Trunk<T> {
 	}
 
 	public void put(String x, T y) {
-		map = new HashMap<>();
 		map.put(x, y);
 	}
 

@@ -32,11 +32,11 @@ join_vue = {
                             <legend class="col-form-label col-sm-2 pt-0">성별</legend>
                             <div class="col-sm-10">
                                 <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gender" value="option1" checked>
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gender" value="male" checked>
                                 <label class="form-check-label" for="gridRadios1">남성</label>
                                 </div>
                                 <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gender" value="option2">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gender" value="female">
                                 <label class="form-check-label" for="gridRadios2">여성</label>
                                 </div>
                         </div>
@@ -59,11 +59,11 @@ join_vue = {
                             <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
                         </div>
                         <div class="form-group">
-                            <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up"/>
+                            <input type="submit" name="submit"  class="form-submit" value="Sign up"/>
                         </div>
                     </form>
                     <p class="loginhere">
-                        Have already an account ? <a href="#" class="loginhere-link">Login here</a>
+                        Have already an account ?
                     </p>
                 </div>
             </div>

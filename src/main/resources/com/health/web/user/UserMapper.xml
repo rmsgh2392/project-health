@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.health.web.user.UserMapper">
+	<!-- 로그인 SQL-->
+	<select  id="login" resultType="User">
+		SELECT * FROM USERS
+		WHERE USERID LIKE #{userid} AND PASSWD LIKE #{passwd}
+	</select>
+	<!-- 회원가입 SQL-->
+	<insert  id="signUp" parameterType="User">
+		INSERT INTO USERS(USERID,PASSWD,UNAME,AGE,GENDER,HEIGHT,WEIGHT,FAT,MUSCLE)
+		VALUES(#{userid},#{passwd},#{uname},#{age},#{gender},#{height},#{weight},#{fat},#{muscle})
+	</insert>
+</mapper>

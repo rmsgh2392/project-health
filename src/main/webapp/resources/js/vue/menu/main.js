@@ -6,13 +6,13 @@ main = {
     			<div class="container">
       			<div class="row">
         		<div class="col-lg-8 mx-auto">
-          		<h2 class="text-white mb-4">Built with Bootstrap 4</h2>
-          		<p class="text-white-50">Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
-            	<a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
-        		</div>
-      			</div>
-      			<img src="${x.img}/ipad.png" class="img-fluid" alt="">
-    			</div>
+          		<h2 class="text-white mb-4">여러분의 능력에 맞게 루틴을 만들어드립니다</h2>
+                <p class="text-white-50">헬린이들을 위한 운동 지식이 없는 분들을  위한 맟춤프로그램 루틴에 맞게 운동 후 자신을 돌아보세요
+              	<a  href="http://startbootstrap.com/template-overviews/grayscale/">the preview  page</a>여러분의 운동의 눈을 뜨게 해드립니다.</p>
+                </div>
+                </div>
+                <iframe width="713" height="401"  src="https://www.youtube.com/embed/H-AcDBLqxi4" frameborder="0"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"  allowfullscreen></iframe>
+                </div>
 				</section>
 
 				<section id="projects" class="projects-section bg-light">

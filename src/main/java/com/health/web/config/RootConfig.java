@@ -19,7 +19,7 @@ public class RootConfig {
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
-		dataSource.setUrl("jdbc:mariadb://172.168.0.150:3306/exercise");
+		dataSource.setUrl("jdbc:mariadb://192.168.5.30/exercise");
 		dataSource.setUsername("mypet");
 		dataSource.setPassword("mypet");
 		return dataSource;

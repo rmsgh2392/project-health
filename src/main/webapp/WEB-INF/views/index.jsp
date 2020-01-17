@@ -32,6 +32,8 @@
 <script src="<%=application.getContextPath()%>/resources/js/vue/user/login_vue.js"></script>
 <script src="<%=application.getContextPath()%>/resources/js/vue/user/join_vue.js"></script>
 <script src="<%=application.getContextPath()%>/resources/js/user/join.js"></script>
+<script src="<%=application.getContextPath()%>/resources/js/user/routine.js"></script>
+<script src="<%=application.getContextPath()%>/resources/js/vue/routine/routine_vue.js"></script>
 </head>
 <body>
 <div id="wrapper">
