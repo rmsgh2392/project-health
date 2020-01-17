@@ -34,6 +34,12 @@
 <script src="<%=application.getContextPath()%>/resources/js/user/join.js"></script>
 <script src="<%=application.getContextPath()%>/resources/js/user/routine.js"></script>
 <script src="<%=application.getContextPath()%>/resources/js/vue/routine/routine_vue.js"></script>
+<script src="<%=application.getContextPath()%>/resources/js/brd/brd.js"></script>
+<script src="<%=application.getContextPath()%>/resources/js/brd/profile.js"></script>
+<script src="<%=application.getContextPath()%>/resources/js/vue/brd/brd_vue.js"></script>
+<script src="<%=application.getContextPath()%>/resources/js/vue/brd/profile_vue.js"></script>
+<script src="<%=application.getContextPath()%>/resources/js/vue/user/mypage_vue.js"></script>
+<script src="<%=application.getContextPath()%>/resources/js/user/mypage.js"></script>
 </head>
 <body>
 <div id="wrapper">

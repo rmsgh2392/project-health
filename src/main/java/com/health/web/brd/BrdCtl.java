@@ -1,6 +1,7 @@
 package com.health.web.brd;
 
 import java.util.Arrays;
+
 import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
@@ -36,6 +37,7 @@ public class BrdCtl {
 	
 	@GetMapping("/list")
 	public List<Brd> list(){
+		System.out.println("리스트 들어옴");
 		Supplier<List<Brd>> s= ()-> brdMapper.selectAll();
 		return s.get(); 
 	}

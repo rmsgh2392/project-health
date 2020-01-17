@@ -13,9 +13,11 @@ join_vue = {
                         <h2 class="form-title">어서와 헬린이들 Welcome!!</h2>
                         <div class="form-group">
                             <input type="text" class="form-input" name="userid" id="userid" placeholder="아이디를 입력하세요"/>
+                            <span id="duple_check" class="error-box"  style role="alert"></span>
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-input" name="passwd" id="passwd" placeholder="비밀번호를 입력하세요"/>
+                            <span id="duple1_check" class="error-box"  style role="alert"></span>
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-input" name="re_password" id="re_password" placeholder="비밀번호 재입력"/>

@@ -5,6 +5,8 @@ main_home = (() => {
 	let main_js, footer_js //메인화면,footer
 	let join_js //회원가입 페이지 이동
 	let routine_js //루틴 페이지이동
+	let brd_js //게시판 화면 
+	let mypage_js
 
 	let init = () => {
 		context = $.ctx()
@@ -16,6 +18,8 @@ main_home = (() => {
 		app_js = js + '/app.js'
 		join_js = js + '/user/join.js'
 		routine_js = js + '/user/routine.js'
+		brd_js = js + '/brd/brd.js'
+		mypage_js = js + '/user/mypage.js'
 	}
 	let onCreate = () => {
 		init()
@@ -25,7 +29,9 @@ main_home = (() => {
 			$.getScript(footer_js),
 			$.getScript(app_js),
 			$.getScript(join_js),
-			$.getScript(routine_js)
+			$.getScript(routine_js),
+			$.getScript(brd_js),
+			$.getScript(mypage_js)
 		)
 		.done(() => {
 			setContentView()
@@ -69,11 +75,13 @@ main_home = (() => {
 			e.preventDefault()
 			auth.onCreate()
 		})
-		$('#mypage').click(() =>{ alert('마이페이지') })
+		$('#mypage').click(() =>{ mypage.onCreate() })
 		$('#routine').click(function(){ 
 			routine.onCreate()
 		 })
-		$('#article').click(() => { alert('게시판') })
+		$('#article').click(function(){
+			brd.onCreate()
+		})
 		$('#center').click(() => { alert('센터') })
 	}
 	return { onCreate }

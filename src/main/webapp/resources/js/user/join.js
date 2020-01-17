@@ -58,7 +58,11 @@ join = (()=>{
 		auth.gomain()
 	}
 	let existId =()=>{
-
+		$('#userid').keyup(()=>{
+			if($('#userid').val().length >= 5){
+				$.getJSON(context + '/')
+			}
+		})
 	}
 	return { onCreate }
 })()
