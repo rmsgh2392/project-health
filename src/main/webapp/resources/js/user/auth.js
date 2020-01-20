@@ -74,7 +74,8 @@ auth = (()=>{
 						.appendTo('#navbarResponsive ul[class="navbar-nav ml-auto"]')})
 						main_home.navi_move()
 						logout()
-						setCookie("userid",d.user.userid)
+						localStorage.setItem('userid',d.user.userid)
+						alert(`스토리지 저장된값 ${localStorage.loginId}`)
 					}else {$('span[class="duple_userid"]').text('아이디를 다시 확인해주세요').css('color','red')}
 				},
 				error : e=>{alert(`ajax실패`)}

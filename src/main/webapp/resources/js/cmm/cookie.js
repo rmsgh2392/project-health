@@ -9,3 +9,7 @@ function getCookie(name) {
 function deleteCookie() {
     document.cookie = "";
 }
+// function setUserid(key, value){
+//     localStorage.setItem(key, value)
+//     localSto
+// }

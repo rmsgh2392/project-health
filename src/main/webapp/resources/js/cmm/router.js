@@ -3,6 +3,7 @@ function Session(x){
 	sessionStorage.setItem('css',x+'/resources/css')
 	sessionStorage.setItem('img',x+'/resources/img')
 	sessionStorage.setItem('js',x+'/resources/js')
+	
 
 	return {
 		ctx : ()=>{return sessionStorage.getItem('ctx')},

@@ -92,6 +92,12 @@ routine_vue = {
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-input" name="muscle" id="muscle" placeholder="근육량 입력하세요"/>
+					</div>
+					<div class="form-group">
+                        <input type="text" class="form-input" name="muscle" id="career" placeholder="경력을 입력하세요"/>
+					</div>
+					<div class="form-group">
+                        <input type="text" class="form-input" name="muscle" id="division" placeholder="분할을 입력하세요"/>
                     </div>
 				</div>
 				<div class="modal-footer justify-content-center">

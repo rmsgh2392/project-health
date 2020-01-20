@@ -14,4 +14,5 @@ import lombok.NoArgsConstructor;
 @Component
 public class User {
 	private String userid, passwd, uname, age, gender, height, weight, fat, muscle;
+	private int career,division;
 }
