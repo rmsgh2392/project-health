@@ -3,12 +3,11 @@ brd_vue = {
 	brd_head: ()=>{
 		return `
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 		`
 	},
 	brd_body: ()=>{
 		return ` 
-        <nav class="navbar navbar-light sticky-top bg-light" style="margin-top : 50px;">
+        <nav class="navbar navbar-light fixed-top bg-light">
         <a class="navbar-brand" href="#"><i class="fab fa-instagram"></i> Healthtagram</a>
             <ul class="nav ">
                 <li class="nav-item">
@@ -18,7 +17,7 @@ brd_vue = {
                     <button id="btn-profile" class="btn btn-primary btn-md btn-profile"> 프로필 </button>
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-cogs"></i></a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="#">Action</a>
+                        <a id="brd_home" class="dropdown-item" href="#"><i class="fas fa-home">Home</i></a>
                         <a class="dropdown-item" href="#">Another action</a>
                         <a class="dropdown-item" href="#">Something else here</a>
                         <div class="dropdown-divider"></div>

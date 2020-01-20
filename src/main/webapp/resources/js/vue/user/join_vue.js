@@ -13,14 +13,15 @@ join_vue = {
                         <h2 class="form-title">어서와 헬린이들 Welcome!!</h2>
                         <div class="form-group">
                             <input type="text" class="form-input" name="userid" id="userid" placeholder="아이디를 입력하세요"/>
-                            <span id="duple_check" class="error-box"  style role="alert"></span>
+                            <span id="id_check" class="error-box"  style role="alert"></span>
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-input" name="passwd" id="passwd" placeholder="비밀번호를 입력하세요"/>
-                            <span id="duple1_check" class="error-box"  style role="alert"></span>
+                            <span id="pwd_check" class="error-box"  style role="alert"></span>
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-input" name="re_password" id="re_password" placeholder="비밀번호 재입력"/>
+                            <span class="error_next_box" id="pwd2_check" style="display : block;" aria-live="assertive"></span>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-input" name="uname" id="uname" placeholder="이름을 입력칸"/>
@@ -38,7 +39,7 @@ join_vue = {
                                 <label class="form-check-label" for="gridRadios1">남성</label>
                                 </div>
                                 <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gender" value="female">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gender" value="female" checked>
                                 <label class="form-check-label" for="gridRadios2">여성</label>
                                 </div>
                         </div>

@@ -1,4 +1,5 @@
 function setCookie(name, value) {
+    alert('value 값' + value)
     document.cookie = name + '=' + value ;
 }
 function getCookie(name) {

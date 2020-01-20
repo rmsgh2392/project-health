@@ -84,6 +84,6 @@ main_home = (() => {
 		})
 		$('#center').click(() => { alert('센터') })
 	}
-	return { onCreate }
+	return { onCreate , navi_move }
 })()
 

@@ -25,11 +25,14 @@ public class UserController {
 	
 	
 	@PostMapping("/join")
-	public void signUp(@RequestBody User param) {
+	public Map<?,?> signUp(@RequestBody User param) {
 		print.accept("회원가입 진입");
 		print.accept("ajax에서 넘어온 데이터 : " + param);
 		Consumer<User> consumer = t-> userMapper.signUp(t);
 		consumer.accept(param);
+		trunk.put("msg", "success");
+		return trunk.get();
+		
 	}
 	@PostMapping("/login")
 	public Map<?, ?> signIn(@RequestBody User param){
@@ -48,6 +51,9 @@ public class UserController {
 	}
 	@GetMapping("/exist/{userid}")
 	public Map<?,?> dupleCheck(@PathVariable String userid){
-		return null;
+		Function<String, Integer> function = t -> userMapper.existId(t);
+		trunk.clear();
+		trunk.put("msg", (function.apply(userid) !=0) ? "Y" : "N");
+		return trunk.get();
 	}
 }

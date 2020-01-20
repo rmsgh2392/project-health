@@ -13,4 +13,9 @@
 		INSERT INTO USERS(USERID,PASSWD,UNAME,AGE,GENDER,HEIGHT,WEIGHT,FAT,MUSCLE)
 		VALUES(#{userid},#{passwd},#{uname},#{age},#{gender},#{height},#{weight},#{fat},#{muscle})
 	</insert>
+	<!-- 아이디 중복체크 -->
+	<select  id="existId" resultType="integer">
+		SELECT COUNT(*) FROM USERS
+		WHERE USERID LIKE #{userid} 
+	</select>
 </mapper>

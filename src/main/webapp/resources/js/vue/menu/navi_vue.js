@@ -16,6 +16,20 @@ navi_vue = {
 				</nav>
 				`
 	},
+	login_toolbar : ()=>{
+		return `<nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-shrink" id="mainNav">
+				<div class="container">
+				<a id="home" class="navbar-brand js-scroll-trigger" href="#"><strong>Hell Chang</strong></a>
+				<button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<i class="fas fa-bars"></i>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+				</ul>
+				</div>
+				</div>
+				</nav>`
+	},
 	toolbar_sub : ()=>{
 		return `<header class="masthead">
     			<div id="getStart" class="container d-flex h-100 align-items-center">

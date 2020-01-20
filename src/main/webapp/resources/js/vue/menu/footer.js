@@ -78,20 +78,20 @@ footer = {
           <h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>
 
           <!-- Facebook -->
-          <a type="button" class="btn-floating btn-fb">
-            <i class="fab fa-facebook-f"></i>
+          <a type="button" class="btn-floating btn-fb" href="https://www.facebook.com/">
+            <i class="fab fa-facebook-square fa-3x"></i>
           </a>
           <!-- Twitter -->
           <a type="button" class="btn-floating btn-tw">
-            <i class="fab fa-twitter"></i>
+            <i class="fab fa-twitter fa-3x"></i>
           </a>
           <!-- Google +-->
           <a type="button" class="btn-floating btn-gplus">
-            <i class="fab fa-google-plus-g"></i>
+            <i class="fab fa-google-plus-g fa-3x"></i>
           </a>
           <!-- Dribbble -->
           <a type="button" class="btn-floating btn-dribbble">
-            <i class="fab fa-dribbble"></i>
+            <i class="fab fa-dribbble fa-3x"></i>
           </a>
         </div>
       </div>
