@@ -1,5 +1,6 @@
 package com.health.web.user;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
 import java.util.function.Consumer;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.health.web.enums.SQL;
 import com.health.web.pxy.Box;
 import com.health.web.pxy.Trunk;
 import com.health.web.util.Printer;
@@ -55,5 +57,16 @@ public class UserController {
 		trunk.clear();
 		trunk.put("msg", (function.apply(userid) !=0) ? "Y" : "N");
 		return trunk.get();
+	}
+	@GetMapping("/create/center")
+	public Map<?, ?> makeTable(){
+		HashMap<String, String> paramMap = new HashMap<>();
+		print.accept("테이블생성 들어옴");
+		paramMap.put("CREATE_CENTER",SQL.CREATE_CENTER.toString());
+		Consumer<HashMap<String, String>> consumer = t-> userMapper.createCenter(paramMap);
+		consumer.accept(paramMap);
+		paramMap.clear();
+		paramMap.put("msg", "success");
+		return paramMap;
 	}
 }

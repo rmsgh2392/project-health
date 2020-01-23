@@ -29,6 +29,7 @@
         <mariadb-version>2.4.4</mariadb-version>
         <mockito-version>1.10.19</mockito-version>
         <spring-security-version>5.1.2.RELEASE</spring-security-version>
+        <json-version>20180813</json-version>
     </properties>
     <contributors>
         <contributor>
@@ -97,6 +98,13 @@
     		<artifactId>jsoup</artifactId>
     		<version>${jsoup-version}</version>
 		</dependency>
+		<!-- json버전 -->
+		<dependency>
+    		<groupId>org.json</groupId>
+    		<artifactId>json</artifactId>
+    		<version>${json-version}</version>
+		</dependency>
+		
 		<!-- spring-security dependency version 주입 -->
 		<dependency>
     		<groupId>org.springframework.security</groupId>

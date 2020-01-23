@@ -3,6 +3,8 @@ brd = (()=>{
 	const WHEN_ERR  = '에러에러'
 	let context, js, css, img , brd_vue_js , profile_js
 	let main_home_js
+	let navi_vue_js
+	let app_js
 
 	let init = ()=>{
 		context = $.ctx(),
@@ -12,13 +14,17 @@ brd = (()=>{
 		brd_vue_js = js+'/vue/brd/brd_vue.js'
 		profile_js = js+'/brd/profile.js'
 		main_home_js = js + '/cmm/main_home.js'
+		navi_vue_js = js + '/vue/menu/navi_vue.js'
+		app_js = js + '/app.js'
 	}
 	let onCreate = () => {
 		init()
 		$.when(
 			$.getScript(brd_vue_js),
 			$.getScript(profile_js),
-			$.getScript(main_home_js)
+			$.getScript(main_home_js),
+			$.getScript(navi_vue_js),
+			$.getScript(app_js)
 		)
 		.done(()=>{
 			setContentView()
@@ -27,7 +33,7 @@ brd = (()=>{
 		}).fail(()=>{alert(WHEN_ERR)})
 	}
 	let createPost =()=>{
-					$('<button>', { type:'button', text :'Publish'})
+		$('<button>', { type:'button', text :'Publish'})
 			.addClass('btn btn-success btn-sm')
 			.appendTo('#write_form')
 			.click(e=>{
@@ -57,7 +63,7 @@ brd = (()=>{
 			})
 			$('#btn-profile')
 			.click(()=>{
-				alert('이동 클릭 ')
+				profile.onCreate()
 			})
 	}
 	let setContentView=() => {
@@ -139,7 +145,8 @@ brd = (()=>{
 	let gohome =()=>{
 		$('#brd_home').click(e=>{
 			e.preventDefault()
-			main_home.onCreate()
+			$('head').html(navi_vue.main_head({js :js,css:css}))
+			app.run(context)
 		})
 	}
 	return { onCreate }

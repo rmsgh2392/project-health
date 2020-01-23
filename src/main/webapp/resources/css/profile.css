@@ -1,264 +1,312 @@
-#profile {
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1000px;
-  font-size: 16px;
+:root {
+font-size: 10px;
 }
-
-.profile__stat a {
-	text-decoration: none;
-	color: #0092CF;
+*,
+*::before,
+*::after {
+box-sizing: border-box;
 }
-
-/* userProfileUpload 수정 */
-#profile .profile__header {
-  display: grid;
-  grid-template-columns: 30% 70%;
-  justify-content: center;
-  margin-bottom: 50px;
+#profile_page {
+font-family: "Open Sans", Arial, sans-serif;
+min-height: 100vh;
+background-color: #fafafa;
+color: #262626;
+padding-bottom: 3rem;
 }
-
-/* 삭제 */
-/* .profile__header .profile__info {
-  width: 70%;
-} */
-
-.profile__header .avatar__container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+img {
+display: block;
 }
-
-/* userProfileUpload 수정 */
-.avatar__container img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  animation: 6s potato infinite ease-in-out;
+.navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 2.25rem;
+    line-height: inherit;
+    white-space: nowrap;
 }
-
-/* userProfileUpload 수정 */
-.profile__photo-grid {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	justify-content: center;
-	grid-gap: 10px;
+.container {
+max-width: 93.5rem;
+margin: 0 auto;
+padding: 0 2rem;
 }
-
-
-/* userProfileUpload 수정 */
-.profile__info .profile__title,
-.profile__info .profile__stats {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  justify-content: start;
-  align-items: center;
-  margin-bottom: 30px;
+.btn {
+display: inline-block;
+font: inherit;
+background: none;
+border: none;
+color: inherit;
+padding: 0;
+cursor: pointer;
 }
-
-/* userProfileUpload 수정 */
-.profile__stat {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 5px;
-  text-align: center;
+.btn:focus {
+outline: 0.5rem auto #4d90fe;
 }
-
-/* userProfileUpload 수정 */
-@media (max-width: 700px) {
-  #profile .profile__header {
-    grid-template-columns: auto;
-  }
-  .profile__photo-grid {
-  	grid-template-columns: auto;
-  }
-  .avatar__container {
-  	margin-top: 20px;
-  	text-align: center;
-  }
-  .profile__info {
-	margin-top: 20px;
-  }
-  .profile__stat {
-  grid-template-columns: auto;
+.visually-hidden {
+position: absolute !important;
+height: 1px;
+width: 1px;
+overflow: hidden;
+clip: rect(1px, 1px, 1px, 1px);
+}
+/* Profile Section */
+.profile {
+padding: 5rem 0;
+}
+.profile::after {
+content: "";
+display: block;
+clear: both;
+}
+.profile-image {
+float: left;
+width: calc(33.333% - 1rem);
+display: flex;
+justify-content: center;
+align-items: center;
+margin-right: 3rem;
+}
+.profile-image img {
+border-radius: 50%;
+}
+.profile-user-settings,
+.profile-stats,
+.profile-bio {
+float: left;
+width: calc(66.666% - 2rem);
+}
+.profile-user-settings {
+margin-top: 1.1rem;
+}
+.profile-user-name {
+display: inline-block;
+font-size: 3.2rem;
+font-weight: 300;
+}
+.profile-edit-btn {
+font-size: 1.4rem;
+line-height: 1.8;
+border: 0.1rem solid #dbdbdb;
+border-radius: 0.3rem;
+padding: 0 2.4rem;
+margin-left: 2rem;
+}
+.profile-settings-btn {
+font-size: 2rem;
+margin-left: 1rem;
+}
+.profile-stats {
+margin-top: 2.3rem;
+}
+.profile-stats li {
+display: inline-block;
+font-size: 1.6rem;
+line-height: 1.5;
+margin-right: 4rem;
+cursor: pointer;
+}
+.profile-stats li:last-of-type {
+margin-right: 0;
+}
+.profile-bio {
+font-size: 1.6rem;
+font-weight: 400;
+line-height: 1.5;
+margin-top: 2.3rem;
+}
+.profile-real-name,
+.profile-stat-count,
+.profile-edit-btn {
+font-weight: 600;
+}
+/* Gallery Section */
+.gallery {
+display: flex;
+flex-wrap: wrap;
+margin: -1rem -1rem;
+padding-bottom: 3rem;
+}
+.gallery-item {
+position: relative;
+flex: 1 0 22rem;
+margin: 1rem;
+color: #fff;
+cursor: pointer;
+}
+.gallery-item:hover .gallery-item-info,
+.gallery-item:focus .gallery-item-info {
+display: flex;
+justify-content: center;
+align-items: center;
+position: absolute;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.3);
+}
+.gallery-item-info {
+display: none;
+}
+.gallery-item-info li {
+display: inline-block;
+font-size: 1.7rem;
+font-weight: 600;
+}
+.gallery-item-likes {
+margin-right: 2.2rem;
+}
+.gallery-item-type {
+position: absolute;
+top: 1rem;
+right: 1rem;
+font-size: 2.5rem;
+text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.1);
+}
+.fa-clone,
+.fa-comment {
+transform: rotateY(180deg);
+}
+.gallery-image {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+/* Loader */
+.loader {
+width: 5rem;
+height: 5rem;
+border: 0.6rem solid #999;
+border-bottom-color: transparent;
+border-radius: 50%;
+margin: 0 auto;
+animation: loader 500ms linear infinite;
+}
+/* Media Query */
+@media screen and (max-width: 40rem) {
+.profile {
+display: flex;
+flex-wrap: wrap;
+padding: 4rem 0;
+}
+.profile::after {
+display: none;
+}
+.profile-image,
+.profile-user-settings,
+.profile-bio,
+.profile-stats {
+float: none;
+width: auto;
+}
+.profile-image img {
+width: 7.7rem;
+}
+.profile-user-settings {
+flex-basis: calc(100% - 10.7rem);
+display: flex;
+flex-wrap: wrap;
+margin-top: 1rem;
+}
+.profile-user-name {
+font-size: 2.2rem;
+}
+.profile-edit-btn {
+order: 1;
+padding: 0;
+text-align: center;
+margin-top: 1rem;
+}
+.profile-edit-btn {
+margin-left: 0;
+}
+.profile-bio {
+font-size: 1.4rem;
+margin-top: 1.5rem;
+}
+.profile-edit-btn,
+.profile-bio,
+.profile-stats {
+flex-basis: 100%;
+}
+.profile-stats {
+order: 1;
+margin-top: 1.5rem;
+}
+.profile-stats ul {
+display: flex;
+text-align: center;
+padding: 1.2rem 0;
+border-top: 0.1rem solid #dadada;
+border-bottom: 0.1rem solid #dadada;
+}
+.profile-stats li {
+font-size: 1.4rem;
+flex: 1;
+margin: 0;
+}
+.profile-stat-count {
+display: block;
 }
 }
-
-.profile__title h1 {
-  font-size: 30px;
-  margin-right: 15px;
+/* Spinner Animation */
+@keyframes loader {
+to {
+transform: rotate(360deg);
 }
-
-.profile__title a {
-  margin-right: 10px;
 }
-
-.profile_follow_btn {
-  color:white;
-  background: #3c88de;
-  border: 0;
-  font-weight: 600;
-  padding: 5px 15px;
-  border-radius: 3px;
-  font-size: 14px;
-  border: 1px solid rgba(0, 0, 0, .0975);
+/*
+The following code will only run if your browser supports CSS grid.
+Remove or comment-out the code block below to see how the browser will fall-back to flexbox & floated styling.
+*/
+@supports (display: grid) {
+.profile {
+display: grid;
+grid-template-columns: 1fr 2fr;
+grid-template-rows: repeat(3, auto);
+grid-column-gap: 3rem;
+align-items: center;
 }
-
-.profile_edit_btn {
-  border: 0;
-  font-weight: 600;
-  padding: 5px 15px;
-  background: transparent;
-  border-radius: 3px;
-  font-size: 14px;
-  border: 1px solid rgba(0, 0, 0, .0975);
+.profile-image {
+grid-row: 1 / -1;
 }
-
-.profile__title i {
-  cursor: pointer;
-  font-size: 22px;
-  animation: 1s rotate infinite linear;
+.gallery {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+grid-gap: 2rem;
 }
-
-@keyframes rotate {
-  from {
-    transform: rotate(0turn);
-  }
-  to {
-    transform: rotate(1turn);
-  }
+.profile-image,
+.profile-user-settings,
+.profile-stats,
+.profile-bio,
+.gallery-item,
+.gallery {
+width: auto;
+margin: 0;
 }
-
-.profile__stats .profile__stat {
-  margin-right: 45px;
+@media (max-width: 40rem) {
+.profile {
+grid-template-columns: auto 1fr;
+grid-row-gap: 1.5rem;
 }
-
-.profile__stat .profile__stat-number {
-  font-weight: 600;
+.profile-image {
+grid-row: 1 / 2;
 }
-
-.profile__bio .profile__fullname,
-.profile__bio .profile__link {
-  font-weight: 600;
+.profile-user-settings {
+display: grid;
+grid-template-columns: auto 1fr;
+grid-gap: 1rem;
 }
-
-.profile__bio .profile__link {
-  color: #385185;
+.profile-edit-btn,
+.profile-stats,
+.profile-bio {
+grid-column: 1 / -1;
 }
-
-.profile__bio {
-	margin-top: 5px;
-	margin-bottom: 5px;
+.profile-user-settings,
+.profile-edit-btn,
+.profile-settings-btn,
+.profile-bio,
+.profile-stats {
+margin: 0;
 }
-
-.profile__bio p {
-	margin-bottom: 5px;
 }
-
-/* 삭제 */
-/* .profile__photo-row .profile__photo {
-  width: 32%;
-} */
-
-.profile__photo a img {
-  max-width: 100%;
-  width:100%;
-  height:300px;
-}
-
-.profile__photo {
-  position: relative;
-}
-
-.profile__photo .profile__photo-overlay {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  opacity: 0;
-  transition: opacity .5s ease-in-out;
-}
-
-.profile__photo-overlay .profile__photo-stat {
-  font-weight: 600;
-  font-size: 18px;
-}
-
-.profile__photo-overlay .profile__photo-stat:first-child {
-  margin-right: 20px;
-}
-
-.profile__photo:hover .profile__photo-overlay {
-  opacity: 1;
-}
-
-/* 삭제 */
-/* .profile__photo-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-} */
-
-.profile__photo-stat i.fa-heart {
-  transform: scale(40);
-  animation: .5s pump infinite linear;
-}
-
-@keyframes pump {
-  0% {
-    transform: none;
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: none;
-  }
-}
-
-.profile__overlay {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.5);
-  top: 0;
-  left: 0;
-  display: none;
-}
-
-.profile__overlay i {
-  position: absolute;
-  right: 25px;
-  top: 25px;
-  color: white;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-.profile__overlay-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  flex-direction: column;
-}
-
-.profile__overlay-link {
-  background: white;
-  width: 400px;
-  text-align: center;
-  padding: 20px 0;
-  color: inherit;
-  border-bottom: 1px solid #e6e6e6;
-  transition: background .5s ease-out;
-}
-
-.profile__overlay-link:hover {
-  background: #efefef;
 }

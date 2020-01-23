@@ -1,7 +1,7 @@
 var auth = auth || {}
 auth = (()=>{
 	let context, img ,css, js ,login_vue_js, cookie_js, main_js
-	let main_home_js
+	let app_js
 	let navi_vue_js
 
 	let init =()=>{
@@ -12,8 +12,8 @@ auth = (()=>{
 		login_vue_js = js + '/vue/user/login_vue.js'
 		cookie_js = js + '/cmm/cookie.js'
 		main_js = js + '/vue/menu/main.js'
-		main_home_js = js + '/cmm/main_home.js'
 		navi_vue_js = js + '/vue/menu/navi_vue.js'
+		app_js = js + '/app.js'
 	}
 	let onCreate =()=>{
 		init()
@@ -21,7 +21,7 @@ auth = (()=>{
 			$.getScript(login_vue_js),
 			$.getScript(cookie_js),
 			$.getScript(main_js),
-			$.getScript(main_home_js),
+			$.getScript(app_js),
 			$.getScript(navi_vue_js)
 		)
 		.done(()=>{
@@ -34,7 +34,6 @@ auth = (()=>{
 	}	
 	let setContentView =()=>{
 		$('head').append(login_vue.login_head())
-		// $('#wrapper').html(login_vue.login_ui())
 		$('.masthead').remove()
 		$('.page-footer').empty()
 		$('#mainpage').empty()
@@ -43,7 +42,7 @@ auth = (()=>{
 	}
 	let gomain =()=>{
 		$('#home').click(function(){
-			main_home.onCreate()
+			app.run(context)
 		})
 	}
 	let signIn =()=>{
@@ -85,9 +84,9 @@ auth = (()=>{
 	let logout =()=>{
 		$('#logout').click(e=>{
 			e.preventDefault()
-			main_home.onCreate()
+			app.run(context)
 			alert('로그아웃')
 		})
 	}
-	return {onCreate, gomain, setContentView }
+	return { onCreate }
 })()

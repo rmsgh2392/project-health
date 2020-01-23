@@ -7,6 +7,7 @@ main_home = (() => {
 	let routine_js //루틴 페이지이동
 	let brd_js //게시판 화면 
 	let mypage_js
+	let center_js
 
 	let init = () => {
 		context = $.ctx()
@@ -20,6 +21,7 @@ main_home = (() => {
 		routine_js = js + '/user/routine.js'
 		brd_js = js + '/brd/brd.js'
 		mypage_js = js + '/user/mypage.js'
+		center_js = js + '/user/center.js'
 	}
 	let onCreate = () => {
 		init()
@@ -31,7 +33,8 @@ main_home = (() => {
 			$.getScript(join_js),
 			$.getScript(routine_js),
 			$.getScript(brd_js),
-			$.getScript(mypage_js)
+			$.getScript(mypage_js),
+			$.getScript(center_js)
 		)
 		.done(() => {
 			setContentView()
@@ -40,6 +43,7 @@ main_home = (() => {
 		.fail(() => {})
 	}
 	let setContentView = () => {
+		// $('head').html(navi_vue.main_head({js : $.js(),css : $.css()}))
 		$('#wrapper').html(navi_vue.toolbar())
 			.append(navi_vue.toolbar_sub())
 			.append(`<div id="mainpage" class="content" style="margin-top : 50px;"></div>`)
@@ -65,11 +69,10 @@ main_home = (() => {
 				auth.onCreate()
 			})
 	}
-	let navi_move = () => {
+	let navi_move =()=> {
 		$('#join').click(e=>{
 			e.preventDefault()
 			join.onCreate()
-
 		})
 		$('#login').click(e => {
 			e.preventDefault()
@@ -82,7 +85,10 @@ main_home = (() => {
 		$('#article').click(function(){
 			brd.onCreate()
 		})
-		$('#center').click(() => { alert('센터') })
+		$('#center').click(() => { 
+			alert('센터')
+			center.onCreate()
+		})
 	}
 	return { onCreate , navi_move }
 })()
