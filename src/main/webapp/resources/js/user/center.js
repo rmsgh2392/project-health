@@ -1,6 +1,7 @@
 var center = center || {}
 center = (()=>{
 	let context,css,js,img
+	let location = {}
 	let search_map_js
 	let markers = []
 	let places = []
@@ -13,63 +14,91 @@ center = (()=>{
 	}
 	let onCreate =()=>{
 		init()
+		navigator.geolocation.getCurrentPosition(function(pos) {
+			location.lat = pos.coords.latitude
+			location.lng = pos.coords.longitude
+		})
 		$.when(
 			$.getScript(search_map_js)
 		)
 		.done(()=>{
 			setContentView()
-			createCenter()
+			mapUi()
+			
 		})
 		.fail(()=>{})
 	}
 	let setContentView =()=>{
-		// $('head').append(search_map.search_head())
+	
 		$('.masthead').remove()
 		$('.page-footer').remove()
 		$('#mainpage').empty()
 		$('#mainpage').append(search_map.search())
 		
-		// var infowindow = new kakao.maps.InfoWindow({zIndex:1})
-		let dt = $('#keyword').val()
-		var mapContainer = document.getElementById('map'); 
-		let mapOptions = { 
-			center: new kakao.maps.LatLng(37.1557617, 126.9360351), 
+		$('<button/>',{
+			text : '크롤링 하기',
+			type : 'submit'
+		})
+		.appendTo('#placesList')
+		.click(e=>{
+			$.getJSON(context + '/tx/crawling/center',d=>{
+				if(d.msg === 'success'){alert(`크롤링 성공`)}
+			})
+		})
+	}
+	let mapUi =()=>{
+		let mapContainer = document.getElementById('map'),
+		mapOptions = { 
+			center: new kakao.maps.LatLng(37.559965,126.942345), 
 			level: 3 ,
-		};
-		var map = new kakao.maps.Map(mapContainer, mapOptions);
+		}
+		let map = new kakao.maps.Map(mapContainer, mapOptions);
 		map.setMapTypeId(daum.maps.MapTypeId.ROADMAP);
-		// $('#searchButton').click(e=>{
-		// 	e.preventDefault()
-		// 	searchPlaces(dt,map)
-		// })
-		searchPlaces('마포구 헬스장',map)
+		
+		$('<button/>',{text : '현재위치 가져오기',type : 'submit'})
+		.appendTo('#placesList')
+		.click(e=>{
+			map.setCenter(new kakao.maps.LatLng(location.lat,location.lng))
+		})
+		let markerPosition = new kakao.maps.LatLng(37.559965,126.942345)
+        let marker = new kakao.maps.Marker({
+            position: markerPosition
+        })
+        marker.setMap(map)
+        let searchVal = document.getElementById('btn_search')
+        let ps = new kakao.maps.services.Places()
+		ps.keywordSearch(searchVal,placesSearchCB)
 		
 	}
-	let searchPlaces = (x,map) =>{
+	let placesSearchCB =(data,status,pagination)=>{
+		if(status === kakao.maps.services.Status.OK){
+			
+		}
+	}
+
+		
+/*	let searchPlaces =x=>{
+		$('#searchButton').click(e=>{
+		alert(x.key)
+		e.preventDefault()
 		var ps = new kakao.maps.services.Places(); 
-		ps.keywordSearch(x, placesSearchCB);
+		ps.keywordSearch(x.key, placesSearchCB);
 		function placesSearchCB (data, status) {
 			places = data
 			console.log(places)
-			page()
 			if (status === kakao.maps.services.Status.OK) {
 				var bounds = new kakao.maps.LatLngBounds();
 				for (var i=0; i<data.length; i++) {
-					markerr(data[i],map);    
+					markerr(data[i],x.map);    
 					bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
 				}       
 				map.setBounds(bounds);
 			} 
 		}
-		
-	}
-	let page =()=>{
-		alert(places.length)
-		$.each(places,(i,j)=>{
-			$('<table><tr><td>'+j.address_name+'</td><td>'+j.place_name+'</td></tr></table>').appendTo('#pagination')
-		})
-	}
-	let markerr = (place,map) =>{
+	})
+	}*/
+
+/*	let markerr = (place,map) =>{
 		let infowindow = new kakao.maps.InfoWindow({zIndex:1})
 		let marker = new kakao.maps.Marker({
 			map: map,
@@ -92,42 +121,6 @@ center = (()=>{
 			infowindow.close();
 		})
 	}
-	let createCenter =()=>{
-       $('<button/>',{
-		   text : '센터 테이블 생성',
-		   type : 'submit'
-	   })
-	   .appendTo('#searchButton')
-	   .click(e=>{
-		   e.preventDefault()
-		   $.getJSON(context+'/users/create/center',d=>{
-			   if(d.msg === 'success'){alert(`테이블 생성`)}else{alert('실패')}
-		   })
-	}) 
-	}
+*/
 	return { onCreate }
 })()
-
-/* function displayMarker(x) {
-			let infowindow = new kakao.maps.InfoWindow({zIndex:1})
-			let marker = new kakao.maps.Marker({
-				map: map,
-				position: new kakao.maps.LatLng(x.y, x.x) 
-			});
-			markers.push(marker)
-			kakao.maps.event.addListener(marker, 'click', function() {
-				alert(x.place_name)
-				infowindow.close();
-			});
-			kakao.maps.event.addListener(marker, 'mouseover', function() {
-				infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
-				infowindow.open(map, marker);
-			});
-			kakao.maps.event.addListener(marker, 'mouseout', function() {
-				infowindow.close();
-			});
-			kakao.maps.event.addListener(marker, 'rightclick', function() {
-				marker.setMap(null)
-				infowindow.close();
-			});
-		}	 */

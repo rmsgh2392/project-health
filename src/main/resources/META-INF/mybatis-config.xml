@@ -7,5 +7,6 @@
     <typeAliases>
     	<typeAlias alias="User"  type="com.health.web.user.User"/>
 		<typeAlias alias="Brd"  type="com.health.web.brd.Brd"/>
+		<typeAlias alias="Center"  type="com.health.web.center.Center"/>
     </typeAliases>
 </configuration>

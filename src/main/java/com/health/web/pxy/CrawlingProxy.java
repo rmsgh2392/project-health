@@ -11,15 +11,23 @@ import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.health.web.center.Center;
+import com.health.web.user.UserMapper;
+import com.health.web.util.Printer;
 
 @Component("/crawler") @Lazy
 public class CrawlingProxy {
 	@Autowired Box<HashMap<String, String>> box;
 	@Autowired Trunk<String> trunk;
+	@Autowired Center center;
+	@Autowired UserMapper userMapper;
 	
-	public ArrayList<HashMap<String, String>> healthCenterCrawl(int page){
+	@Transactional
+	public ArrayList<HashMap<String, String>> healthCenterCrawl(int page, int count, String name){
 		final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36";
-		String url = "https://map.naver.com/v5/api/search?caller=pcweb&query=%EB%A7%88%ED%8F%AC%EA%B5%AC%20%ED%97%AC%EC%8A%A4%EC%9E%A5&type=all&searchCoord=126.92406177520753;37.55662179786924&page=1&displayCount=20&isPlaceRecommendationReplace=true&lang=ko";
+		String url = "https://map.naver.com/v5/api/search?caller=pcweb&query="+name+"&type=all&searchCoord=126.92406177520753;37.55662179786924&page="+page+"&displayCount="+count+"&isPlaceRecommendationReplace=true&lang=ko";
 		JSONObject json = null;
 		try {
 			Connection.Response html =  Jsoup.connect(url)
@@ -41,9 +49,25 @@ public class CrawlingProxy {
 			trunk.put("address", j.get("address").toString());
 			trunk.put("phone", j.get("tel").toString());
 			trunk.put("review",j.get("reviewCount").toString());
+			box.add(trunk.get());
 			
+			center.setCname(j.get("name").toString());
+			center.setCaddr(j.get("address").toString());
+			center.setCphone(j.get("tel").toString());
+			center.setCscore(j.get("reviewCount").toString());
+			userMapper.insetMap(center);
 		}
-		return null;
+		System.out.println("담긴 값 "+ box);
+		return box.get();
 		
 	}
+	@Transactional
+	public void insertCrawling() {
+		int crawlingPage = 7, count = 20;
+		String name  = "마포구 헬스장";
+		for(int i=1; i <=crawlingPage; i++) {
+			healthCenterCrawl(i,count,name);
+		}
+	}
+	
 }

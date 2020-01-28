@@ -7,15 +7,15 @@ public enum SQL {
 	
 	@Override
 	public String toString() {
-		//userid, passwd, uname, age, gender, height, weight, fat, muscle
 		String result = "";
 		switch (this) {
 		case CREATE_CENTER:
 			result = "CREATE TABLE CENTER("
-					+ "CNAME VARCHAR(100) PRIMARY KEY,"
+					+ "CSEQ INT AUTO_INCREMENT PRIMARY KEY,"
+					+ "CNAME VARCHAR(100),"
 					+ "CADDR VARCHAR(200),"
 					+ "CPHONE VARCHAR(100),"
-					+ "CSCORE VARCHAR(50))";
+					+ "CSCORE VARCHAR(100))";
 			break;
 		case DROP_CENTER : 
 			result = "DROP TABLE USERS";

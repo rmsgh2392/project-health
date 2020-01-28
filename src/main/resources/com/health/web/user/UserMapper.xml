@@ -21,4 +21,8 @@
 	<select  id="createCenter" parameterType="hashMap">
 		${CREATE_CENTER}	
 	</select>
+	<insert id="insetMap" parameterType="Center">
+		INSERT INTO CENTER(CNAME,CADDR,CPHONE,CSCORE)
+		VALUES(#{cname},#{caddr},#{cphone},#{cscore})
+	</insert>
 </mapper>

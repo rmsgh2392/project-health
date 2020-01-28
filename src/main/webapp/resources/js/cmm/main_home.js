@@ -44,7 +44,7 @@ main_home = (() => {
 	}
 	let setContentView = () => {
 		// $('head').html(navi_vue.main_head({js : $.js(),css : $.css()}))
-		$('#wrapper').html(navi_vue.toolbar())
+		$('#wrapper').html(navi_vue.toolbar)
 			.append(navi_vue.toolbar_sub())
 			.append(`<div id="mainpage" class="content" style="margin-top : 50px;"></div>`)
 			.append(footer.foot())

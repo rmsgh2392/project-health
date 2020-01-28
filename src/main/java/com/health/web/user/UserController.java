@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.health.web.enums.SQL;
 import com.health.web.pxy.Box;
+import com.health.web.pxy.CrawlingProxy;
 import com.health.web.pxy.Trunk;
 import com.health.web.util.Printer;
 
@@ -23,7 +24,8 @@ import com.health.web.util.Printer;
 @RequestMapping("/users")
 public class UserController {
 	@Autowired User user; @Autowired UserMapper userMapper; @Autowired Printer print; 
-	@Autowired Trunk<Object> trunk; @Autowired Box<Object> box;
+	@Autowired Trunk<Object> trunk; @Autowired Box<Object> box; @Autowired CrawlingProxy crawler;
+   
 	
 	
 	@PostMapping("/join")
