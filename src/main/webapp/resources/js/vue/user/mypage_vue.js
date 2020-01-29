@@ -204,6 +204,7 @@ mypage_vue ={
 						grid-template-rows: 350px 500px;
 						grid-template-columns: repeat(3, 1fr);">
 	<!--가로막대그래프-->
+	
 		<div class="countEx">부위 별 운동 횟수
 			<div class="graph stack1">
 				<span style="width: 75%">가슴 75회</span>

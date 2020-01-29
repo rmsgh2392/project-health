@@ -1,8 +1,10 @@
 var auth = auth || {}
 auth = (()=>{
-	let context, img ,css, js ,login_vue_js, cookie_js, main_js
+	let context, img ,css, js ,login_vue_js, main_js
 	let app_js
 	let navi_vue_js
+	let router_js 
+	let mypage_js , routine_js , brd_js, center_js
 
 	let init =()=>{
 		context = $.ctx()
@@ -10,39 +12,47 @@ auth = (()=>{
 		css = $.css()
 		js = $.js()
 		login_vue_js = js + '/vue/user/login_vue.js'
-		cookie_js = js + '/cmm/cookie.js'
 		main_js = js + '/vue/menu/main.js'
 		navi_vue_js = js + '/vue/menu/navi_vue.js'
 		app_js = js + '/app.js'
+		router_js = js + '/cmm/router.js'
+		mypage_js = js + '/user/mypage.js'
+		routine_js = js + '/user/routine.js'
+		brd_js = js + '/brd/brd.js'
+		center_js = js + '/user/center.js'
 	}
 	let onCreate =()=>{
 		init()
 		$.when(
 			$.getScript(login_vue_js),
-			$.getScript(cookie_js),
 			$.getScript(main_js),
 			$.getScript(app_js),
-			$.getScript(navi_vue_js)
+			$.getScript(navi_vue_js),
+			$.getScript(router_js),
+			$.getScript(mypage_js),
+			$.getScript(routine_js),
+			$.getScript(brd_js),
+			$.getScript(center_js)
 		)
 		.done(()=>{
 			setContentView()
 			gomain()
 			signIn()
-			
+			logout()
 		})
 		.fail(()=>{})
 	}	
 	let setContentView =()=>{
 		$('head').append(login_vue.login_head())
 		$('.masthead').remove()
-		$('.page-footer').empty()
+		$('.page-footer').remove()
 		$('#mainpage').empty()
 		$('#mainpage').append(login_vue.login_ui())
 		
 	}
 	let gomain =()=>{
 		$('#home').click(function(){
-			app.run(context)
+			auth.onCreate()
 		})
 	}
 	let signIn =()=>{
@@ -59,11 +69,12 @@ auth = (()=>{
 				contentType : 'application/json',
 				success : d=>{
 					if(d.msg ==='success'){
+							$('head').append(navi_vue.toolbar_sub_head())
 							$('#wrapper').html(navi_vue.login_toolbar())
-							.append(navi_vue.toolbar_sub())
-							.append(`<div id="mainpage" class="content" style="margin-top : 50px;"></div>`)
+							.append(navi_vue.toolbar_sub2({img : img}))
 							.append(footer.foot())
-							$('#mainpage').append(main.main_vue({ img: img }))
+							.append(`<div id="mainpage" class="content" style="margin-top : 50px;"></div>`)
+//							$('#mainpage').append(main.main_vue({ img: img }))
 						$.each([{ text: 'Mypage', id: 'mypage' },
 								{ text: '루틴프로그램', id: 'routine' },
 								{ text: '헬스타그램', id: 'article' },
@@ -71,16 +82,39 @@ auth = (()=>{
 								{text: '로그아웃',id :'logout'}], (i, j) => {
 						$('<li class="nav-item"><a id="' + j.id + '" class="nav-link js-scroll-trigger" href="#">' + j.text + '</a></li>')
 						.appendTo('#navbarResponsive ul[class="navbar-nav ml-auto"]')})
-						main_home.navi_move()
+						navi_move()
 						logout()
-						localStorage.setItem('userid',d.user.userid)
-						alert(`스토리지 저장된값 ${localStorage.loginId}`)
+						let t = d.user
+						$.extend(new Users(t))
+						alert(`스토리지 저장된값 ${sessionStorage.getItem('uname')}`)
 					}else {$('span[class="duple_userid"]').text('아이디를 다시 확인해주세요').css('color','red')}
 				},
 				error : e=>{alert(`ajax실패`)}
 			})
 		}
 	)}
+	let navi_move =()=>{
+		$('#mypage').click(e=>{
+			e.preventDefault()
+			alert('마이페이지 클릭')
+			mypage.onCreate()
+		})
+		$('#routine').click(e=>{
+			e.preventDefault()
+			alert('루틴클릭')
+			routine.onCreate()
+		})
+		$('#article').click(e=>{
+			e.preventDefault()
+			alert('루틴클릭')
+			brd.onCreate()
+		})
+		$('#center').click(e=>{
+			e.preventDefault()
+			alert('지도 클릭')
+			center.onCreate()
+		})
+	}
 	let logout =()=>{
 		$('#logout').click(e=>{
 			e.preventDefault()
@@ -88,5 +122,5 @@ auth = (()=>{
 			alert('로그아웃')
 		})
 	}
-	return { onCreate }
+	return { onCreate, signIn }
 })()

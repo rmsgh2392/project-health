@@ -128,13 +128,13 @@ login_vue = {
               <h3 class="login-heading mb-4">Welcome back!</h3>
               <form>
                 <div class="form-label-group">
-                  <input type="text" id="userid"   class="form-control"  placeholder="userid">
+                  <input type="text" id="userid"   class="form-control"  placeholder="userid" value="rmsgh">
 									<label for="userid">유저아이디</label>
 									<span class="duple_userid"></span>
                 </div>
 
                 <div class="form-label-group">
-                  <input type="password" id="passwd"  class="form-control"  placeholder="password">
+                  <input type="password" id="passwd"  class="form-control"  placeholder="password" value="123">
 									<label for="password">Password</label>
                 </div>
 

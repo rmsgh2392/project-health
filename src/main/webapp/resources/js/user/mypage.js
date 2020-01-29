@@ -37,7 +37,7 @@ mypage = (() => {
 	}
 	let setContentView = () => {
 		$('head').append(login_vue.login_head())
-		$('.masthead').remove()
+		$('.masthead2').remove()
 		$('.page-footer').remove()
 		$('#mainpage').empty()
 		$('#mainpage').append(mypage_vue.mypage_main())

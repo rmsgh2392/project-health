@@ -31,7 +31,6 @@ navi_vue = {
 		<script src="${x.js}/vue/menu/main.js"></script>
 		<script src="${x.js}/vue/menu/footer.js"></script>
 		<script src="${x.js}/user/auth.js"></script>
-		<script src="${x.js}/cmm/cookie.js"></script>
 		<script src="${x.js}/vue/user/login_vue.js"></script>
 		<script src="${x.js}/vue/user/join_vue.js"></script>
 		<script src="${x.js}/user/join.js"></script>
@@ -79,9 +78,52 @@ navi_vue = {
 		return `<header class="masthead">
     			<div id="getStart" class="container d-flex h-100 align-items-center">
       			<div class="mx-auto text-center">
-        		<h1 class="mx-auto my-0 text-uppercase">HELL Chang Gram</h1>
-        		<h2 class="text-white-50 mx-auto mt-2 mb-5">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
+        		<h1 class="mx-auto my-0 text-uppercase animated heartBeat infinite" >HELL Chang</h1>
+        		<h2 class="text-white-50 mx-auto mt-5 mb-5">환영합니다 이제부터 본격적으로 운동을 시작합시다!!</h2>
+        		<div class="plane"><span></span></div>
       			</div>
+    			</div>
+  				</header>`
+	},
+	toolbar_sub_head : ()=>{
+		return `<style>
+				.carousel-item {
+				  height: 80vh;
+				  background:  center center scroll;
+				  -webkit-background-size: cover;
+				  -moz-background-size: cover;
+				  -o-background-size: cover;
+				  background-size: cover;
+				}
+				</style>`
+	},
+	toolbar_sub2 : x=>{
+		return `<header class="masthead2">
+      				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+					  <ol class="carousel-indicators">
+					    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+					    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+					    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+					  </ol>
+					  <div class="carousel-inner">
+					    <div class="carousel-item active">
+					      <img src="${x.img}/qqqq.jpg" class="d-block w-100" alt="">
+					    </div>
+					    <div class="carousel-item">
+					      <img src="${x.img}/qq.jpg" class="d-block w-100" alt="">
+					    </div>
+					    <div class="carousel-item">
+					      <img src="${x.img}/qqq.jpg" class="d-block w-100" alt="">
+					    </div>
+					  </div>
+					  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+					    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					    <span class="sr-only">Previous</span>
+					  </a>
+				  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Next</span>
+				  </a>
     			</div>
   				</header>`
 	}

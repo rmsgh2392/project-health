@@ -1,13 +1,10 @@
 package com.health.web.pxy;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
@@ -15,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.health.web.center.Center;
 import com.health.web.user.UserMapper;
-import com.health.web.util.Printer;
+
 
 @Component("/crawler") @Lazy
 public class CrawlingProxy {

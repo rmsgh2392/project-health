@@ -41,7 +41,7 @@ search_map = {
 	search : ()=>{
 		return `<div class="map_wrap">
     			<div id="map" style="width:1000px;height:600px;position:relative;overflow:auto; margin-top:100px;"></div>
-    			<input type="text" placeholder="찾고 싶은 곳을 입력하세요"/>
+    			<input id="input_search" type="text" placeholder="찾고 싶은 곳을 입력하세요"/>
     			<button type="submit" id="btn_search">검색</button>
         		<ul id="placesList"></ul>
     			</div>`

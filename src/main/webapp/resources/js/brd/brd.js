@@ -3,8 +3,7 @@ brd = (()=>{
 	const WHEN_ERR  = '에러에러'
 	let context, js, css, img , brd_vue_js , profile_js
 	let main_home_js
-	let navi_vue_js
-	let app_js
+	let navi_vue_js , auth_js
 
 	let init = ()=>{
 		context = $.ctx(),
@@ -15,7 +14,8 @@ brd = (()=>{
 		profile_js = js+'/brd/profile.js'
 		main_home_js = js + '/cmm/main_home.js'
 		navi_vue_js = js + '/vue/menu/navi_vue.js'
-		app_js = js + '/app.js'
+		auth_js = js + '/user/auth.js'
+		
 	}
 	let onCreate = () => {
 		init()
@@ -24,7 +24,7 @@ brd = (()=>{
 			$.getScript(profile_js),
 			$.getScript(main_home_js),
 			$.getScript(navi_vue_js),
-			$.getScript(app_js)
+			$.getScript(auth_js)
 		)
 		.done(()=>{
 			setContentView()
@@ -69,7 +69,7 @@ brd = (()=>{
 	let setContentView=() => {
 		$('head').append(brd_vue.brd_head())
 		$('#mainNav').remove()
-		$('.masthead').remove()
+		$('.masthead2').remove()
 		$('.page-footer').remove()
 		$('#mainpage').html(brd_vue.brd_body())
 		recent_updates()
@@ -146,7 +146,7 @@ brd = (()=>{
 		$('#brd_home').click(e=>{
 			e.preventDefault()
 			$('head').html(navi_vue.main_head({js :js,css:css}))
-			app.run(context)
+			auth.signIn()
 		})
 	}
 	return { onCreate }

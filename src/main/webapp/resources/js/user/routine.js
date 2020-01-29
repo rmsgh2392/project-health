@@ -32,9 +32,9 @@ routine = (()=>{
 		.fail(()=>{alert(`실패`)})
 	}
 	let setContentView =()=>{
-		$('.masthead').remove()
-		$('.page-footer').remove()
 		$('head').append(routine_vue.routine_style({img :img}))
+		$('.masthead2').remove()
+		$('.page-footer').remove()
 		$('#mainpage').html(routine_vue.routine_page({img : img}))
 
 	}
