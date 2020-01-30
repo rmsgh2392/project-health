@@ -4,12 +4,9 @@ mypage_vue ={
 	mypage_main:()=>{
 		return `
 		<link rel="stylesheet" href="/web/resources/css/mypageMain.css"/>
-
-    <h1 class="text-center">어서오세요 User님</h1>
+		<h1 class="text-center"></h1>
 	<div class="container">
-		<div class="row">
-	
-		<!--team-1-->
+	<div class="row">
 	<div class="col-lg-4">
 	<div class="our-team-main">
 	
@@ -147,24 +144,13 @@ mypage_vue ={
 	</div>`
 	},
 	mypage_modify: x=>{
-		return `
-		<link rel="stylesheet" href="${x.css}/mypageModify.css"/>
-		
-		<div class="main">
+		return `<link rel="stylesheet" href="${x.css}/mypageModify.css"/>
+				<div class="main">
         <section class="myModify">
             <div class="container2">
                 <div class="myModify-content">
                     <form method="POST" id="myModify-form" class="myModify-form">
                         <h2 class="form-title">개인정보를 바꾸시려구요?</h2>
-                        <div class="form-group">
-                            <input type="password" class="form-input" name="oldpwd" id="oldpwd" placeholder="기존 비밀번호를 입력하세요."/>
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-input" name="newpwd" id="newpwd" placeholder="새 비밀번호를 입력하세요."/>
-						</div>
-						 <div class="form-group">
-                            <input type="password" class="form-input" name="re_pwd" id="re_pwd" placeholder="새 비밀번호를 확인합니다."/>
-                        </div>
                         <div class="form-group">
                             <input type="text" class="form-input" name="uname" id="newName" placeholder="이름을 입력하세요."/>
                             <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
@@ -196,58 +182,22 @@ mypage_vue ={
         </section>
     </div>`
 	},
-	mypage_graph: x=>{
+	mypage_chart: x=>{
 		return `
-		<link rel="stylesheet" href="/web/resources/css/mypageGraph.css"/>
-					<div class ="graphs" style=" width: 1000px;
-						display: grid;
-						grid-template-rows: 350px 500px;
-						grid-template-columns: repeat(3, 1fr);">
-	<!--가로막대그래프-->
-	
-		<div class="countEx">부위 별 운동 횟수
-			<div class="graph stack1">
-				<span style="width: 75%">가슴 75회</span>
+		<link rel="stylesheet" href="${x}/mypageChart.css"/>
+		<div class="chartMain">
+			<div class="chart1">
+				<canvas id="myChart1"></canvas>
 			</div>
-			<div class="graph stack2">
-				<span style="width: 25%">등 25회</span> 
+			<div class="chart2">
+				<canvas  id="myChart2"></canvas>
 			</div>
-			<div class="graph stack3">
-				<span style="width: 33%">어깨 33회</span>
+			<div class="chart3">
+				<canvas id="myChart3"></canvas>
 			</div>
-			<div class="graph stack4">
-				<span style="width: 45%">이두 45회</span>
+			<div class="chart4">
+				<canvas id="myChart4"></canvas>
 			</div>
-			<div class="graph stack5">
-				<span style="width: 51%">삼두 51회</span>
-			</div>
-			<div class="graph stack6">
-				<span style="width: 34%">하체 34회</span>
-			</div>
-			<div class="graph stack7">
-				<span style="width: 85%">코어 85회</span>
-			</div>
-		</div>
-	<!--프로그래스 바-->
-		<div class="rateEx" style="  text-align:center; font-size : 20px; font-weight:bold;">월 운동량 달성률
-		<div class="row">
-		<div class="col-md-3 col-sm-6">
-		<div class="progress blue">
-		<span class="progress-left">
-		<span class="progress-bar"></span>
-		</span>
-		<span class="progress-right">
-		<span class="progress-bar"></span>
-		</span>
-		<div class="progress-value">90%</div>
-		</div>
-		</div>
-		</div>
-		</div>
-		</div>
-		<div>
-		<canvas id="myChart">
-		</canvas>
 		</div>
 		`
 	}

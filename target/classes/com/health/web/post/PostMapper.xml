@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.health.web.brd.BrdMapper">
+<mapper namespace="com.health.web.post.PostMapper">
 
 	<insert id="insertBrd" parameterType="Brd">
         insert into BOARD (USERID, IMG, CONTENT) values (

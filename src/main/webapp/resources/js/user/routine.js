@@ -2,7 +2,7 @@ var routine = routine || {}
 routine = (()=>{
 	let context,img,css,js
 	let routine_vue_js //루틴화면
-	let app_js,navi_vue_js
+	let navi_vue_js, auth_js
 	let existing_routine_js
 
 	let init =()=>{
@@ -11,7 +11,7 @@ routine = (()=>{
 		css = $.css()
 		js = $.js()
 		routine_vue_js = js + '/vue/routine/routine_vue.js'
-		app_js = js + '/app.js'
+		auth_js = js + '/user/auth.js'
 		existing_routine_js = js + '/user/existing_routine.js'
 		navi_vue_js = js + '/vue/menu/navi_vue.js'
 	}
@@ -19,7 +19,7 @@ routine = (()=>{
 		init()
 		$.when(
 			$.getScript(routine_vue_js),
-			$.getScript(app_js),
+			$.getScript(auth_js),
 			$.getScript(existing_routine_js),
 			$.getScript(navi_vue_js)
 		)
@@ -51,7 +51,7 @@ routine = (()=>{
 	let gohome =()=>{
 		$('#home').click(e=>{
 			e.preventDefault()
-			app.run(context)
+			auth.login_home()
 		})
 	}
 	return { onCreate }

@@ -79,7 +79,7 @@
 }
 
 .masthead {
-  /* position: relative; */
+  position: relative; 
   width: 100%;
   height: auto;
   min-height: 35rem;
@@ -91,11 +91,15 @@
   background-size: cover;
 }
 .masthead2{
+  height: 1060px;
+  padding-top: 320px;
+  position: relative;
+  margin-top : 70px;
   width: 100%;
-  height: 800px;
   min-height: 35rem;
   padding: 15rem 0;
-  padding-top : 50px;
+  background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url("../img/TTT.png");
+  background-repeat: no-repeat;
   background-position: center;
   background-attachment: scroll;
   background-size: cover;
@@ -106,11 +110,20 @@
   font-size: 2.5rem;
   line-height: 2.5rem;
   letter-spacing: 0.8rem;
-  background: -webkit-linear-gradient(rgba(111, 71, 175, 0.9), rgba(111, 71, 175, 0));
+  background: -webkit-linear-gradient(rgba(111, 71,175, 0.9), rgba(111, 71, 175, 0));
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text; 
 }
-
+.masthead2 h1 {
+  
+ font-family: 'Varela Round'; 
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.8rem;
+  background: -webkit-linear-gradient(rgba(255, 255, 0, 0.9), rgba(255, 255, 0, 0));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text; 
+}
 .masthead h2 {
   max-width: 50rem;
   font-size: 1rem;

@@ -29,7 +29,7 @@ brd = (()=>{
 		.done(()=>{
 			setContentView()
 			createPost()
-			gohome()
+			
 		}).fail(()=>{alert(WHEN_ERR)})
 	}
 	let createPost =()=>{
@@ -68,10 +68,11 @@ brd = (()=>{
 	}
 	let setContentView=() => {
 		$('head').append(brd_vue.brd_head())
-		$('#mainNav').remove()
+		$('#mainNav').append(brd_vue.brd_toolbar())
 		$('.masthead2').remove()
 		$('.page-footer').remove()
 		$('#mainpage').html(brd_vue.brd_body())
+		gohome()
 		recent_updates()
 	}
 	let recent_updates =()=> {
@@ -146,7 +147,7 @@ brd = (()=>{
 		$('#brd_home').click(e=>{
 			e.preventDefault()
 			$('head').html(navi_vue.main_head({js :js,css:css}))
-			auth.signIn()
+			auth.login_home()
 		})
 	}
 	return { onCreate }

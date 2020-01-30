@@ -1,6 +1,7 @@
-package com.health.web.brd;
+package com.health.web.post;
 
 import java.util.Arrays;
+
 
 import java.util.List;
 import java.util.Map;
@@ -20,47 +21,47 @@ import com.health.web.pxy.Trunk;
 
 @RestController
 @RequestMapping("/brds")
-public class BrdCtl {
-	@Autowired BrdMapper brdMapper;
+public class PostCtrl {
+	@Autowired PostMapper postMapper;
 	@Autowired Trunk<Object> trunk;
 	
 	@PutMapping("/")
-	public Map<?,?> writeBrd(@RequestBody Brd param){
+	public Map<?,?> writeBrd(@RequestBody Post param){
 		System.out.println("글쓰기 들어옴"+ param.getContent());
-		Consumer<Brd> c = t -> brdMapper.insertBrd(t);
+		Consumer<Post> c = t -> postMapper.insertBrd(t);
 		c.accept(param);
 		
-		Supplier<String> s =()->  brdMapper.countArtseq();
+		Supplier<String> s =()->  postMapper.countArtseq();
 		trunk.put(Arrays.asList("msg","count"),Arrays.asList("SUCCESS",s.get()));
 		return trunk.get();
 	}
 	
 	@GetMapping("/list")
-	public List<Brd> list(){
+	public List<Post> list(){
 		System.out.println("리스트 들어옴");
-		Supplier<List<Brd>> s= ()-> brdMapper.selectAll();
+		Supplier<List<Post>> s= ()-> postMapper.selectAll();
 		return s.get(); 
 	}
 	
 	@GetMapping("/read/{seq}")
-	public Brd readBrd(@PathVariable String seq) {
-		Supplier<Brd> c = ()-> brdMapper.selectBrd(seq);
+	public Post readBrd(@PathVariable String seq) {
+		Supplier<Post> c = ()-> postMapper.selectBrd(seq);
 		return c.get();
 	}
 	
 	@PutMapping("/update/{seq}")
-	public Brd updateBrd(@PathVariable String seq, @RequestBody Brd param) {
+	public Post updateBrd(@PathVariable String seq, @RequestBody Post param) {
 		System.out.println("수정 들어옴");
-		Consumer<Brd> c = t -> brdMapper.updateBrd(param);
+		Consumer<Post> c = t -> postMapper.updateBrd(param);
 		c.accept(param);
-		Supplier<Brd> d = ()-> brdMapper.selectBrd(seq);
+		Supplier<Post> d = ()-> postMapper.selectBrd(seq);
 		return d.get();
 		
 	}
 	
 	@DeleteMapping("/{seq}")
-	public Map<?,?> deleteBrd(@PathVariable String brdseq,@RequestBody Brd param){
-		Consumer<Brd> c = t-> brdMapper.deleteBrd(param);
+	public Map<?,?> deleteBrd(@PathVariable String brdseq,@RequestBody Post param){
+		Consumer<Post> c = t-> postMapper.deleteBrd(param);
 		c.accept(param);
 		trunk.put(Arrays.asList("msg"), Arrays.asList("success"));
 		return trunk.get();

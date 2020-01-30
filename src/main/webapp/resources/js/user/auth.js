@@ -4,7 +4,7 @@ auth = (()=>{
 	let app_js
 	let navi_vue_js
 	let router_js 
-	let mypage_js , routine_js , brd_js, center_js
+	let mypage_js , routine_js , brd_js, center_js , join_js
 
 	let init =()=>{
 		context = $.ctx()
@@ -20,6 +20,7 @@ auth = (()=>{
 		routine_js = js + '/user/routine.js'
 		brd_js = js + '/brd/brd.js'
 		center_js = js + '/user/center.js'
+		join_js = js + '/user/join.js'
 	}
 	let onCreate =()=>{
 		init()
@@ -32,13 +33,14 @@ auth = (()=>{
 			$.getScript(mypage_js),
 			$.getScript(routine_js),
 			$.getScript(brd_js),
-			$.getScript(center_js)
+			$.getScript(center_js),
+			$.getScript(join_js)
 		)
 		.done(()=>{
 			setContentView()
 			gomain()
 			signIn()
-			logout()
+			gojoin()
 		})
 		.fail(()=>{})
 	}	
@@ -55,6 +57,12 @@ auth = (()=>{
 			auth.onCreate()
 		})
 	}
+	let gojoin =()=>{
+		$('a[class="small"]').click(e=>{
+			e.preventDefault()
+			join.onCreate()
+		})
+	}
 	let signIn =()=>{
 		$('#login_btn')
 		.click(e=>{
@@ -69,21 +77,8 @@ auth = (()=>{
 				contentType : 'application/json',
 				success : d=>{
 					if(d.msg ==='success'){
-							$('head').append(navi_vue.toolbar_sub_head())
-							$('#wrapper').html(navi_vue.login_toolbar())
-							.append(navi_vue.toolbar_sub2({img : img}))
-							.append(footer.foot())
-							.append(`<div id="mainpage" class="content" style="margin-top : 50px;"></div>`)
-//							$('#mainpage').append(main.main_vue({ img: img }))
-						$.each([{ text: 'Mypage', id: 'mypage' },
-								{ text: '루틴프로그램', id: 'routine' },
-								{ text: '헬스타그램', id: 'article' },
-								{ text: '트레이너/센터 찾기', id: 'center' },
-								{text: '로그아웃',id :'logout'}], (i, j) => {
-						$('<li class="nav-item"><a id="' + j.id + '" class="nav-link js-scroll-trigger" href="#">' + j.text + '</a></li>')
-						.appendTo('#navbarResponsive ul[class="navbar-nav ml-auto"]')})
-						navi_move()
-						logout()
+						login_home()
+						
 						let t = d.user
 						$.extend(new Users(t))
 						alert(`스토리지 저장된값 ${sessionStorage.getItem('uname')}`)
@@ -115,6 +110,19 @@ auth = (()=>{
 			center.onCreate()
 		})
 	}
+	let login_home =()=>{
+		$('#wrapper').html(navi_vue.login_toolbar())
+		.append(navi_vue.toolbar_sub2())
+		.append(`<div id="mainpage" class="content" style="margin-top : 80px;"></div>`)
+		$.each([{ text: 'Mypage', id: 'mypage' },
+				{ text: '루틴프로그램', id: 'routine' },
+				{ text: '헬스타그램', id: 'article' },
+				{ text: '트레이너/센터 찾기', id: 'center' },
+				{text: '로그아웃',id :'logout'}], (i, j) => {
+		$('<li class="nav-item"><a id="' + j.id + '" class="nav-link js-scroll-trigger" href="#">' + j.text + '</a></li>').appendTo('#navbarResponsive ul[class="navbar-nav ml-auto"]')})
+		navi_move()
+		logout()
+	}
 	let logout =()=>{
 		$('#logout').click(e=>{
 			e.preventDefault()
@@ -122,5 +130,5 @@ auth = (()=>{
 			alert('로그아웃')
 		})
 	}
-	return { onCreate, signIn }
+	return { onCreate, login_home }
 })()

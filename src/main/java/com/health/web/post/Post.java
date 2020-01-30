@@ -1,4 +1,4 @@
-package com.health.web.brd;
+package com.health.web.post;
 
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
@@ -12,6 +12,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Lazy
-public class Brd {
-	private String seq, userid, img, content, comments, ratings, regdate; 
+public class Post {
+	private String postno,content,img,regdate,userno; 
 }

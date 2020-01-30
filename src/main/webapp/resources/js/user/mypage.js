@@ -3,7 +3,7 @@ mypage = (() => {
 	let context, img, css, js
 	let mypage_vue_js
 	let brd_js
-	let existing_routine_js, app_js,navi_vue_js
+	let existing_routine_js, app_js,navi_vue_js, auth_js
 
 	let init = () => {
 		context = $.ctx()
@@ -15,6 +15,7 @@ mypage = (() => {
 		existing_routine_js = js + '/user/existing_routine.js'
 		app_js = js + '/app.js'
 		navi_vue_js = js + '/vue/menu/navi_vue.js'
+		auth_js  = js + '/user/auth.js'
 	}
 	let onCreate = () => {
 		init()
@@ -23,11 +24,12 @@ mypage = (() => {
 			$.getScript(brd_js),
 			$.getScript(existing_routine_js),
 			$.getScript(app_js),
-			$.getScript(navi_vue_js)
+			$.getScript(navi_vue_js),
+			$.getScript(auth_js)
 		).done(() => {
 			setContentView()
 			gomodify()
-			gogrape()
+			gochart()
 			goroutine()
 			gohelgram()
 			goHome()
@@ -41,6 +43,7 @@ mypage = (() => {
 		$('.page-footer').remove()
 		$('#mainpage').empty()
 		$('#mainpage').append(mypage_vue.mypage_main())
+		$('h1[class="text-center"]').text('어서오세요'+ sessionStorage.getItem('uname') +'님')
 	}
 	let gomodify = () => {
 		$('a[class="myModify"] span')
@@ -51,15 +54,64 @@ mypage = (() => {
 				$('#mainpage').empty()
 				$('#mainpage').append(mypage_vue.mypage_modify({ css: $.css() }))
 			})
+		$('#security').click(e=>{
+			e.preventDefault()
+			alert('클릭')
+		})
 	}
-	let gogrape = () => {
+	let gochart = () => {
 		$('a[class="myGraph"] span')
 			.click(e => {
 				e.preventDefault()
 				$('.masthead').remove()
 				$('.page-footer').remove()
 				$('#mainpage').empty()
-				$('#mainpage').append(mypage_vue.mypage_graph({js : $.js()}))
+				$('#mainpage').append(mypage_vue.mypage_chart(css))
+				var ctx1 = $('#myChart1');
+				var myPieChart = new Chart(ctx1,{
+					type : 'pie',
+					data :{
+						labels : ['Chest', 'Back', 'Shoulder', 'Biceps', 'Triceps', 'Legs', 'Abdominals'],
+						datasets : [{
+							label: '부위 별 운동 횟수',
+							data : [12, 6, 5, 8, 5, 2, 6],
+							backgroundColor : ['#f5bd4f', '#f08530', '#d85348', '#861e52', '#15567e', '#23a8c0', '#38af9b'],
+							
+						}]
+					},
+					options:{
+						maintainAspectRatio : false,
+					}
+				})
+				var ctx2 = $('#myChart2');
+				var ctx3 = $('#myChart3');
+				var ctx4 = $('#myChart4');
+				var myLineChart = new Chart(ctx4, {
+					type: 'line',
+					data: {
+						labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+						datasets: [	{
+							label: '내 월 별 근골격량',
+							data: [0, 10, 5, 2, 20, 30, 45, 25, 35, 65, 23 ,11],
+							backgroundColor: '#ff0066',
+							borderColor: 'rgb(200, 0, 0)',
+							borderWidth : 1,
+							pointRadius : 5,
+							pointHoverRadius : 10,
+							pointBorderColor: 'yellow'
+							},
+							{label: '회원 평균 근골격량',
+							borderColor: '#0000ff',
+							data: [35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35],
+							pointRadius : 5,
+							pointHoverRadius : 10,
+							fill:false
+							}]
+					},
+					options: {
+						maintainAspectRatio : false,
+						}
+				})
 			})
 	}
 	let goroutine = () => {
@@ -79,7 +131,7 @@ mypage = (() => {
 	let goHome =()=>{
 		$('#home').click(e=>{
 			e.preventDefault()
-			app.run(context)
+			auth.login_home()
 		})
 	}
 	return { onCreate }

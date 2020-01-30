@@ -87,43 +87,16 @@ navi_vue = {
 	},
 	toolbar_sub_head : ()=>{
 		return `<style>
-				.carousel-item {
-				  height: 80vh;
-				  background:  center center scroll;
-				  -webkit-background-size: cover;
-				  -moz-background-size: cover;
-				  -o-background-size: cover;
-				  background-size: cover;
-				}
+
 				</style>`
 	},
-	toolbar_sub2 : x=>{
+	toolbar_sub2 : ()=>{
 		return `<header class="masthead2">
-      				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-					  <ol class="carousel-indicators">
-					    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-					    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-					    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-					  </ol>
-					  <div class="carousel-inner">
-					    <div class="carousel-item active">
-					      <img src="${x.img}/qqqq.jpg" class="d-block w-100" alt="">
-					    </div>
-					    <div class="carousel-item">
-					      <img src="${x.img}/qq.jpg" class="d-block w-100" alt="">
-					    </div>
-					    <div class="carousel-item">
-					      <img src="${x.img}/qqq.jpg" class="d-block w-100" alt="">
-					    </div>
-					  </div>
-					  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-					    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					    <span class="sr-only">Previous</span>
-					  </a>
-				  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-				    <span class="sr-only">Next</span>
-				  </a>
+    			<div id="getStart" class="container d-flex h-100 align-items-center">
+      			<div class="mx-auto text-center">
+        		<h1 class="mx-auto my-0 text-uppercase animated zoomIn infinite">여러분의 죽어있는 운동세포를 깨우세요</h1>
+        		<h2 class="text-white-50 mx-auto mt-5 mb-5">어서오세요 헬창여러분 루틴을 생성해 운동을 시작하세요</h2>
+      			</div>
     			</div>
   				</header>`
 	}
