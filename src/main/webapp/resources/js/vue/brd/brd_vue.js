@@ -2,25 +2,29 @@ var brd_vue = brd_vue || {}
 brd_vue = {
 	brd_head: ()=>{
 		return `
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        
 		`
 	},
-	brd_toolbar : ()=>{
-		return `<nav class="navbar navbar-light fixed-top bg-light">
-        <a class="navbar-brand" href="#"><i class="fab fa-instagram"></i> Healthtagram</a>
+	brd_body: ()=>{
+		return ` 
+        <div style="margin-top: 92px">
+            <div class="navbar navbar-light sticky-top bg-light">
+            <a class="navbar-brand" href="#"><i class="fab fa-instagram"></i> Healthtagram</a>
+            <div class="search">
+                <em>#HashTags</em> <input type="text" value="검색">
+                <button class="fa fa-search fa-2x btn btn-berem" id="bcr_instagsbtn"></button>
+            </div>
             <ul class="nav ">
                 <li class="nav-item">
                     <button type="button" class="btn btn-primary btn-md btn-success" data-toggle="modal" data-target="#exampleModal">Create a new post</button>
                 </li>
                 <li class="nav-item dropdown">
-                    <button id="btn-profile" class="btn btn-primary btn-md btn-profile"> 프로필 </button>
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-cogs"></i></a>
+                    <button id="btn-profile" class="btn btn-primary btn-md btn-profile"> 프로필 </button>      
                 </li>
             </ul>
-        </nav>`
-	},
-	brd_body: ()=>{
-		return `
+            </div>
+        </div>
+        
         <!-- Modal Begin -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">

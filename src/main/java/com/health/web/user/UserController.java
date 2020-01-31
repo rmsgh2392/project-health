@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -70,5 +71,14 @@ public class UserController {
 		paramMap.clear();
 		paramMap.put("msg", "success");
 		return paramMap;
+	}
+	@PutMapping("/{userid}")
+	public User makeRoutine(@PathVariable String userid, @RequestBody User param) {
+		print.accept("루틴 만들기 도착");
+		print.accept("아이디" + param);
+		Consumer<User> c = o -> userMapper.makeRoutine(param);
+		c.accept(param);
+		Function<User, User> f = t -> userMapper.selectUpdatedUser(param);
+		return f.apply(param);
 	}
 }

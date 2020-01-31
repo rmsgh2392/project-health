@@ -25,4 +25,20 @@
 		INSERT INTO CENTER(CNAME,CADDR,CPHONE,CSCORE)
 		VALUES(#{cname},#{caddr},#{cphone},#{cscore})
 	</insert>
+	  <update id="makeRoutine" parameterType="User">
+    	UPDATE USERS
+    	SET
+    	UNAME = #{uname},
+    	HEIGHT = #{height},
+    	WEIGHT = #{weight},
+    	MUSCLE = #{muscle},
+    	FAT = #{fat},
+    	CAREER = #{career},
+    	DIVISION = #{division}
+    	WHERE USERID LIKE #{userid}
+    </update>
+    <select id="selectUpdatedUser" parameterType="User" resultType="User">
+    	SELECT * FROM USERS
+    	WHERE USERID LIKE #{userid}
+   	</select>
 </mapper>

@@ -77,10 +77,9 @@ auth = (()=>{
 				contentType : 'application/json',
 				success : d=>{
 					if(d.msg ==='success'){
-						login_home()
-						
 						let t = d.user
 						$.extend(new Users(t))
+						login_home()
 						alert(`스토리지 저장된값 ${sessionStorage.getItem('uname')}`)
 					}else {$('span[class="duple_userid"]').text('아이디를 다시 확인해주세요').css('color','red')}
 				},

@@ -13,4 +13,7 @@ public interface UserMapper {
 	public int existId(String userid);
 	public void createCenter(HashMap<String, String> paramMap);
 	public void insetMap(Center param);
+	public void makeRoutine(User param);
+	public User selectUpdatedUser(User param);
+	public User infoUserByUserNo(int userno);
  }

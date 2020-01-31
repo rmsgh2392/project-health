@@ -1,5 +1,7 @@
 package com.health.web.post;
 
+import java.util.Date;
+
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
@@ -13,5 +15,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Lazy
 public class Post {
-	private String postno,content,img,regdate,userno; 
+	private int postno;			
+	private int userno;
+	private String content;
+	private Date regedate;	
+	private String img;
 }
